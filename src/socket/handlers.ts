@@ -147,6 +147,8 @@ export function registerHandlers(io: TypedServer, socket: TypedSocket, engine: G
         if (!currentGameId || !currentPlayerId) throw new Error('No active game')
         const game = engine.submitBet(currentGameId, currentPlayerId, data.value)
         broadcastPlayerStatus(io, game)
+        // Send the betting player their updated state so myBet is reflected
+        socket.emit('game:state', buildStatePayload(game, currentPlayerId))
 
         if (game.phase === 'REVEAL' || game.phase === 'ACCEPT') {
           const bets = game.players.map((p) => ({
