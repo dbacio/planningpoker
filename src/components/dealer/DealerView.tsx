@@ -1,5 +1,5 @@
 'use client'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSocket } from '@/hooks/useSocket'
 import { useGameState } from '@/hooks/useGameState'
 import { TopBar } from '@/components/shared/TopBar'
@@ -17,6 +17,7 @@ interface DealerViewProps {
 export function DealerView({ gameId }: DealerViewProps) {
   const socket = useSocket()
   const state = useGameState(socket)
+  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     if (!socket) return
@@ -80,12 +81,21 @@ export function DealerView({ gameId }: DealerViewProps) {
         gameId={gameId}
       />
 
-      {/* Share link in lobby */}
-      {state.phase === 'LOBBY' && (
-        <div className="bg-poker-card text-center py-3 text-sm">
-          Share this link: <span className="text-poker-green font-mono select-all">{shareLink}</span>
-        </div>
-      )}
+      {/* Share link — always visible for dealer */}
+      <div className="bg-poker-card flex items-center justify-center gap-3 py-2 px-4 text-sm">
+        <span className="text-poker-muted">Invite players:</span>
+        <code className="text-poker-green font-mono select-all bg-poker-bg px-3 py-1 rounded text-xs">{shareLink}</code>
+        <button
+          onClick={() => {
+            navigator.clipboard.writeText(shareLink)
+            setCopied(true)
+            setTimeout(() => setCopied(false), 2000)
+          }}
+          className="px-3 py-1 bg-poker-surface border border-gray-600 rounded text-xs hover:border-poker-green hover:text-poker-green transition-colors"
+        >
+          {copied ? 'Copied!' : 'Copy'}
+        </button>
+      </div>
 
       {/* Main 3-column layout */}
       <div className="flex-1 grid grid-cols-[220px_1fr_200px] min-h-0">
