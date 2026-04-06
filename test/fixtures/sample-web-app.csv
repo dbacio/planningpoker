@@ -1,0 +1,13 @@
+title,description,storyPoints,tags,priority
+"User authentication","Implement login/logout flow with JWT tokens",5,"backend;auth;security","P1"
+"Profile settings page","Allow users to update their name, email, and avatar",3,"frontend;ux","P2"
+"Password reset flow","Send reset email and handle token verification",5,"backend;auth;email","P1"
+"Dashboard analytics widget","Display key metrics with charts on the main dashboard",8,"frontend;data;charts","P2"
+"REST API rate limiting","Add rate limiting middleware to all public endpoints",3,"backend;infra;security","P1"
+"Image upload service","Handle image uploads with S3 storage and thumbnail generation",8,"backend;storage","P2"
+"Search functionality","Full-text search across articles and user profiles",13,"backend;search;frontend","P1"
+"Notification system","In-app notifications with read/unread state tracking",8,"frontend;backend;realtime","P2"
+"CSV data export","Allow users to export their data as CSV files",3,"backend;data","P3"
+"Dark mode toggle","Add theme switching with system preference detection",2,"frontend;ux","P3"
+"Email verification","Verify new user emails before activating accounts",5,"backend;auth;email","P1"
+"Activity feed","Show recent actions by team members on the dashboard",5,"frontend;backend;realtime","P2"

@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-poker-bg: #1a1a2e;
+  --color-poker-surface: #16213e;
+  --color-poker-card: #0f3460;
+  --color-poker-green: #4ecca3;
+  --color-poker-red: #e94560;
+  --color-poker-red-dark: #c73650;
+  --color-poker-muted: #888888;
+}
+
+body {
+  background-color: var(--color-poker-bg);
+  color: #e0e0e0;
+}

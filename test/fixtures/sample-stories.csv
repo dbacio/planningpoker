@@ -1,0 +1,6 @@
+title,description,storyPoints,tags,priority
+"User profile image upload","As a user, I want to upload a profile picture",,"frontend;storage","P2"
+"Auth token refresh","Implement automatic token refresh for expired sessions",5,"backend;security","P1"
+"Dashboard filters","Add filtering capability to the dashboard",3,"frontend;ux","P2"
+"Rate limiting","Implement API rate limiting",,"backend;infra","P1"
+"CSV export","Allow users to export data as CSV",,"backend;data","P3"
